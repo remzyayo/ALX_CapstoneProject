@@ -17,7 +17,6 @@ This API is built as part of my *ALX Capstone Project, demonstrating skills in *
 - [API Endpoints](#-api-endpoints)
 - [Example Payloads](#-example-payloads)
 - [Author](#-author)
-- [License](#-license)
 - [Future Plans](#-future-plans)
 
 ---
@@ -82,3 +81,61 @@ Each user has private access to their data and can set budgets, compare them wit
 | POST | /api/expenses/ | Create a new expense |
 | PUT | /api/expenses/<id>/ | Update expense |
 | DELETE | /api/expenses/<id>/ | Delete expense |
+
+---
+
+## 🧪 Example Payloads
+
+### 🧍‍♂ User Registration
+```json
+{
+  "username": "francis",
+  "email": "francis@example.com",
+  "password": "password123"
+}
+
+---
+
+## Author
+*Francis Oluremi*  
+Founder/CEO – CAROMA FARM ENTERPRISES 
+📍 Ondo State, Nigeria  
+
+[LinkedIn](https://www.linkedin.com/in/francis-oluremi-aa927a355/)
+
+---
+
+## 🚀 Future Plans
+
+Here are some features and improvements planned for future versions of this project:
+
+1. *Expense Filtering & Pagination*
+   - Allow users to filter expenses by category or date range.
+   - Add pagination for large expense lists.
+
+2. *Budget Alerts*
+   - Notify users when their spending approaches or exceeds their set budget.
+
+3. *Data Visualization*
+   - Display monthly or category-based expense summaries using charts.
+
+4. *Reports & Export*
+   - Generate downloadable expense reports (PDF or Excel).
+
+5. *JWT Authentication*
+   - Upgrade authentication to use JSON Web Tokens for better security.
+
+6. *Frontend Integration*
+   - Build a React or Vue.js frontend to consume this API for better user experience.
+
+7. *Cloud Deployment*
+   - Host the API on platforms like Heroku or PythonAnywhere for live access.
+
+8. *Multi-Currency Support*
+   - Support different currencies and automatic conversion for international users.
+
+
+The goal is to make this Expense Tracker API a complete personal finance management solution.
+
+
+
