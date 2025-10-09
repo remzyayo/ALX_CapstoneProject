@@ -97,13 +97,13 @@ Each user has private access to their data and can set budgets, compare them wit
 ---
 
 ## Author
-*Francis Oluremi*  
+Francis Oluremi 
 Founder/CEO – CAROMA FARM ENTERPRISES 
-Ondo State, Nigeria  
+Ondo State, Nigeria. 
 
-[LinkedIn](https://www.linkedin.com/in/francis-oluremi-aa927a355/)
+[Linkedin]
+(https://www.linkedin.com/in/francis-oluremi-aa927a355/)
 
----
 
 ## Future Plans
 

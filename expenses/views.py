@@ -1,14 +1,18 @@
 from django.shortcuts import render
 
 from rest_framework import viewsets, permissions
-from django.contrib.auth import get_user_model
-from .serializer import UserSerializer
+from .models import Expense
+from .serializer import ExpenseSerializer
 
-User = get_user_model()
+class ExpenseViewSet(viewsets.ModelViewSet):
+    serializer_class = ExpenseSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [permissions.AllowAny]  # anyone can register
+    def get_queryset(self):
+        # Return only expenses belonging to the logged-in user
+        return Expense.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
