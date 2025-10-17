@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 User = get_user_model()
 
 class ExpenseViewSet(viewsets.ModelViewSet):
+    queryset = Expense.objects.all()
     serializer_class = ExpenseSerializer
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
