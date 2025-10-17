@@ -6,7 +6,9 @@ from django.db.models import Sum
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 class ExpenseViewSet(viewsets.ModelViewSet):
     serializer_class = ExpenseSerializer

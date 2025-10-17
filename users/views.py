@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, viewsets
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from .serializers import RegisterSerializer
+from .serializers import RegisterSerializer, UserSerializer
+from django.contrib.auth import get_user_model
 
 # Register a new user
 class RegisterView(generics.CreateAPIView):
@@ -26,4 +27,12 @@ class LoginView(ObtainAuthToken):
             'user_id': token.user_id,
             'username': token.user.username
         })
+
+
+
+User = get_user_model()
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
