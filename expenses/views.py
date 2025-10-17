@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from rest_framework import viewsets, permissions, filters
+from rest_framework import viewsets, permissions, filters, generics
 from .models import Expense
-from .serializer import ExpenseSerializer
+from .serializer import ExpenseSerializer, RegisterSerializer
 from django.db.models import Sum
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 
 User = get_user_model()
 
@@ -38,3 +39,8 @@ class ExpenseViewSet(viewsets.ModelViewSet):
             'remaining_balance': remaining
         })
 
+
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegisterSerializer
+    permission_classes = [permissions.AllowAny]

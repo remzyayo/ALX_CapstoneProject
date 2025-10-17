@@ -9,7 +9,7 @@ from django.contrib.auth import get_user_model
 
 # Register a new user
 class RegisterView(generics.CreateAPIView):
-    
+    queryset = get_user_model
     serializer_class = RegisterSerializer
     permission_classes = [permissions.AllowAny]
 

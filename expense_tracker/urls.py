@@ -17,12 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from expenses.views import ExpenseViewSet
+from expenses.views import ExpenseViewSet, RegisterView
 from users.views import UserViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'expenses', ExpenseViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +33,6 @@ urlpatterns = [
     path('api/users/', include('users.urls')),
     path('api/', include('expenses.urls')),
     path('api/auth/', include('rest_framework.urls')),
+    path('api/register/', RegisterView.as_view(), name ='register'),
 ]
 
