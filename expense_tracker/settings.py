@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-)kjk(_nz!h7o=1ffxzy_ufvzcl*e-3*ms@u2ohbnf_@vf5w$a9
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "alx-capstoneproject-1-ve3z.onrender.com",
-    "localhost",
-    "127.0.0.1",
+    'alx-capstoneproject-1-ve3z.onrender.com',
+    'localhost',
+    '127.0.0.1',
 ]
 
 
