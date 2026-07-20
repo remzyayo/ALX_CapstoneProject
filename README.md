@@ -98,7 +98,7 @@ Each user has private access to their data and can set budgets, compare them wit
 
 ## Author
 Francis Oluremi 
-Founder/CEO – CAROMA FARM ENTERPRISES 
+
 Ondo State, Nigeria. 
 
 [Linkedin]
