@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-)kjk(_nz!h7o=1ffxzy_ufvzcl*e-3*ms@u2ohbnf_@vf5w$a9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "alx-capstoneproject-1-ve3z.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
 
 
 # Application definition
