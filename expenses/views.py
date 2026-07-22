@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions, filters, generics
-from .models import Expense
+from .models import Expense, Recipe, Category
 from .serializer import ExpenseSerializer, RegisterSerializer
 from django.db.models import Sum
 from rest_framework.decorators import action
@@ -45,3 +45,15 @@ class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
     permission_classes = [permissions.AllowAny]
+
+
+    def recipe_list(request):
+        category_id = request.GET.get("category")
+        recipes = Recipe.objects.all()
+        categories = Category.objects.all()
+
+        if category_id:
+            recipes = recipes.filter(category_id=category_id)
+
+        return render(request, "recipes/recipe_list.html", {"recipes": recipes, "categories": categories,},)
+      
