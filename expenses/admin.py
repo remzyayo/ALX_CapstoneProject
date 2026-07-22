@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Expense, Book, Borrower
+from .models import Expense, Book, Borrower, Recipe, Category
 
 admin.site.register(Expense)
 admin.site.register(Book)
@@ -12,3 +12,8 @@ class BorrowerAdmin(admin.ModelAdmin):
     list_display = ("name", "book", "borrow_date", "status"),
     list_filter = ("status"),
     search_fields = ("name", "email","book__title")
+
+class RecipeAdmin(admin.ModelAdmin):
+    list_display = ("title", "category", "cook_time", "instructions")
+    list_filter = ("category")
+    search_fields = ("title", "ingredients")
