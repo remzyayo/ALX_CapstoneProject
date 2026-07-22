@@ -4,6 +4,8 @@ from .models import Expense, Book, Borrower, Recipe, Category
 admin.site.register(Expense)
 admin.site.register(Book)
 admin.site.register(Borrower)
+admin.site.register(Recipe)
+admin.site.register(Category)
 
 class BookAdmin(admin.ModelAdmin):
     list_display = ("title","author", "available")
