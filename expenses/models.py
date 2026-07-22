@@ -38,10 +38,15 @@ class Book(models.Model):
         return self.title
 
 class Borrower(models.Model):
+    STATUS_CHOICES = [
+        ("borrowed", "Borrowed"),
+        ("returned", "Returned"),
+    ]
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="borrower")
     borrow_date = models.DateField(auto_now_add=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="borrowed")
     
 
     def __str__(self):
