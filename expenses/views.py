@@ -46,14 +46,3 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
     permission_classes = [permissions.AllowAny]
 
-
-    def recipe_list(request):
-        category_id = request.GET.get("category")
-        recipes = Recipe.objects.all()
-        categories = Category.objects.all()
-
-        if category_id:
-            recipes = recipes.filter(category_id=category_id)
-
-        return render(request, "recipes/recipe_list.html", {"recipes": recipes, "categories": categories,},)
-      
