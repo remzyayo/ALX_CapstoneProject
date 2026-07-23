@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions, filters, generics
-from .models import Expense, Recipe, Category
+from .models import Expense, Task
 from .serializer import ExpenseSerializer, RegisterSerializer
 from django.db.models import Sum
 from rest_framework.decorators import action
@@ -8,6 +8,9 @@ from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
+from django.utils import timezone
+
+
 
 User = get_user_model()
 
@@ -45,4 +48,13 @@ class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
     permission_classes = [permissions.AllowAny]
+
+def task_list(request):
+        today = timezone.now().date()
+
+        tasks = Task.objects.select_related("project").order_by("deadline")
+        overdue_tasks = Task.objects.filter(deadline__lt=today).exclude(status="Done")
+        context = {"tasks": tasks, "overdue_tasks": overdue_tasks, "today": today,}
+
+        return render(request, "expenses/task_list.html", {"tasks": tasks, "today": today,},)
 
