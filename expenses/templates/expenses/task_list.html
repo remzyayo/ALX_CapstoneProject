@@ -1,5 +1,12 @@
 <h1>Task</h1>
 
+<h2>Priority Filter</h2>
+
+<a href="?priority=Low">Low</a> |
+<a href="?priority=Medium">Medium</a> |
+<a href="?priority=High">High</a> |
+<a href="?">Show All</a> 
+
 {% for task in tasks %}
     <div>
         <h3>{{ task.title }}</h3>
@@ -18,9 +25,3 @@
 
 {% endfor %}
 
-<h2>Priority Filter</h2>
-
-<a href="?priority=Low">Low</a> |
-<a href="?priority=Medium">Medium</a> |
-<a href="?priority=High">High</a> |
-<a href="?">Show All</a> 
