@@ -54,7 +54,7 @@ def task_list(request):
 
         tasks = Task.objects.select_related("project").order_by("deadline")
         overdue_tasks = Task.objects.filter(deadline__lt=today).exclude(status="Done")
-        context = {"tasks": tasks, "overdue_tasks": overdue_tasks, "today": today,}
+        context = {"tasks": tasks, "overdue_tasks": overdue_tasks, "today": today, "priority_filter": priority_filter,}
         priority_filter = request.GET.get("priority")
         
         if priority_filter:
