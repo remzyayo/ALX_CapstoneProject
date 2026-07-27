@@ -56,5 +56,5 @@ def task_list(request):
         overdue_tasks = Task.objects.filter(deadline__lt=today).exclude(status="Done")
         context = {"tasks": tasks, "overdue_tasks": overdue_tasks, "today": today,}
 
-        return render(request, "expenses/task_list.html", {"tasks": tasks, "today": today,},)
+        return render(request, "expenses/task_list.html", context,)
 
