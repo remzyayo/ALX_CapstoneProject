@@ -53,6 +53,7 @@ def task_list(request):
         today = timezone.now().date()
         priority_filter = request.GET.get("priority")
         status_filter = request.GET.get("status")
+        search_query = request.GET.get("q")
         tasks = Task.objects.select_related("project").order_by("deadline")
 
         if priority_filter:
@@ -61,8 +62,11 @@ def task_list(request):
         if status_filter:
              tasks = tasks.filter(status=status_filter)
 
+        if search_query:
+             tasks = tasks.filter(title__icontains=search_query)
+
         overdue_tasks = Task.objects.filter(deadline__lt=today).exclude(status="Done")
-        context = {"tasks": tasks, "overdue_tasks": overdue_tasks, "today": today, "priority_filter": priority_filter, "status_filter": status_filter,}
+        context = {"tasks": tasks, "overdue_tasks": overdue_tasks, "today": today, "priority_filter": priority_filter, "status_filter": status_filter, "search_query": search_query,}
         
         return render(request, "expenses/task_list.html", context,)
 

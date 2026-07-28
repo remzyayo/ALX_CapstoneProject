@@ -12,7 +12,21 @@
 <a href="?status=Not Started">Not Started</a> |
 <a href="?status=In Progress">In Progress</a> |
 <a href="?status=Done">Done</a> |
-<a href="?">Show All</a> |
+<a href="?">Show All</a> 
+
+<h2>Search Tasks</h2>
+
+<form method="GET">
+    <input
+        type="text"
+        name="q"
+        placeholder="Search by title..."
+        value="{{ search_query }}"
+    >
+    <button type="submit">Search</button>
+</form>
+
+
 
 {% for task in tasks %}
     <div>
