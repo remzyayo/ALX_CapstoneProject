@@ -7,6 +7,13 @@
 <a href="?priority=High">High</a> |
 <a href="?">Show All</a> 
 
+<h2>Status Filter</h2>
+
+<a href="?status=Not Started">Not Started</a> |
+<a href="?status=In Progress">In Progress</a> |
+<a href="?status=Done">Done</a> |
+<a href="?">Show All</a> |
+
 {% for task in tasks %}
     <div>
         <h3>{{ task.title }}</h3>
@@ -22,6 +29,9 @@
     </div>
 
     <hr>
+
+    {% empty %}
+        <p>No tasks found.</p>
 
 {% endfor %}
 
