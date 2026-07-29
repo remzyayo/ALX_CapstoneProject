@@ -1,3 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <link rel="stylesheet" href="{% static 'expenses/css/style.css' %}">
+</head>
+
+<body>
+
 <h1>Task</h1>
 
 <h2>Priority Filter</h2>
@@ -5,47 +19,99 @@
 <a href="?priority=Low">Low</a> |
 <a href="?priority=Medium">Medium</a> |
 <a href="?priority=High">High</a> |
-<a href="?">Show All</a> 
+<a href="?">Show All</a>
 
 <h2>Status Filter</h2>
 
 <a href="?status=Not Started">Not Started</a> |
 <a href="?status=In Progress">In Progress</a> |
-<a href="?status=Done">Done</a> |
-<a href="?">Show All</a> 
+<a href="?status=Started">Started</a> |
+<a href="?">Show All</a>
 
 <h2>Search Tasks</h2>
 
 <form method="GET">
+
     <input
         type="text"
         name="q"
         placeholder="Search by title..."
         value="{{ search_query }}"
     >
-    <button type="submit">Search</button>
+
+    <button type="submit">
+        Search
+    </button>
+
 </form>
 
-
-
 {% for task in tasks %}
-    <div>
-        <h3>{{ task.title }}</h3>
 
-        <p>Project: {{ task.project }}</p>
-        <p>Deadline: {{ task.deadline }}</p>
-        <p>Priority: {{ task.priority }}</p>
-        <p>Status: {{ task.status }}</p>
+<div class="task-card">
 
-        {% if task.deadline < today and task.status != "Done" %}
-            <strong style="color:red;">OVERDUE</strong>
-        {% endif %}
-    </div>
+    <h3>{{ task.title }}</h3>
 
-    <hr>
+    <p>
+        <strong>Project:</strong>
+        {{ task.project }}
+    </p>
 
-    {% empty %}
-        <p>No tasks found.</p>
+    <p>
+        <strong>Deadline:</strong>
+        {{ task.deadline }}
+    </p>
+
+    <p>
+        <strong>Priority:</strong>
+
+        <span class="
+            {% if task.priority == 'High' %}
+                priority-high
+            {% elif task.priority == 'Medium' %}
+                priority-medium
+            {% elif task.priority == 'Low' %}
+                priority-low
+            {% endif %}
+        ">
+            {{ task.get_priority_display }}
+        </span>
+
+    </p>
+
+    <p>
+        <strong>Status:</strong>
+
+        <span class="
+            {% if task.status == 'Started' %}
+                status-started
+            {% elif task.status == 'In Progress' %}
+                status-in-progress
+            {% elif task.status == 'Not Started' %}
+                status-not-started
+            {% endif %}
+        ">
+            {{ task.get_status_display }}
+        </span>
+
+    </p>
+
+    {% if task.deadline < today and task.status != "Done" %}
+        <strong class="overdue">
+            OVERDUE
+        </strong>
+    {% endif %}
+
+</div>
+
+<hr>
+
+{% empty %}
+
+<p class="empty-message">
+    No tasks found.
+</p>
 
 {% endfor %}
 
+</body>
+</html>
