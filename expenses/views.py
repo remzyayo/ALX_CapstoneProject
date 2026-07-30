@@ -92,6 +92,10 @@ def add_task(request):
     return render(request, "expenses/task_form.html", context)
 
 
+def home(request):
+    return redirect("task_list")
+
+
 
     
 
