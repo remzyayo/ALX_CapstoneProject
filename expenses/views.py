@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from rest_framework import viewsets, permissions, filters, generics
 from .models import Expense, Task
 from .serializer import ExpenseSerializer, RegisterSerializer
@@ -9,6 +9,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.utils import timezone
+from .forms import TaskForm
 
 
 
@@ -67,8 +68,27 @@ def task_list(request):
 
         overdue_tasks = Task.objects.filter(deadline__lt=today).exclude(status="Done")
         context = {"tasks": tasks, "overdue_tasks": overdue_tasks, "today": today, "priority_filter": priority_filter, "status_filter": status_filter, "search_query": search_query,}
-        
-        return render(request, "expenses/task_list.html", context,)
+
+def add_task(request):
+
+    if request.method == "POST":
+
+        form = TaskForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("task_list")
+
+    else:
+
+        form = TaskForm()
+
+    context = {
+        "form": form,
+    }
+
+    return render(request, "expenses/task_form.html", context)
+
 
 
     
