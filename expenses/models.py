@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
+
 
 
 User = get_user_model()
@@ -83,6 +85,7 @@ class Task(models.Model):
     deadline = models.DateField()
     priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES, default="Medium")
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Not Started")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="tasks")
 
     def __str__(self):
         return self.title

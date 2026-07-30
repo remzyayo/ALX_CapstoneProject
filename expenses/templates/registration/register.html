@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'expenses/css/style.css' %}">
+</head>
+<body>
+
+<h1 class="form-title">Register</h1>
+
+<div class="form-container">
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit">
+Create Account
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

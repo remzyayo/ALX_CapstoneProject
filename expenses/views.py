@@ -10,7 +10,9 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.utils import timezone
 from .forms import TaskForm, ProjectForm
-
+from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import RegisterForm
 
 
 User = get_user_model()
@@ -55,7 +57,7 @@ def task_list(request):
         priority_filter = request.GET.get("priority")
         status_filter = request.GET.get("status")
         search_query = request.GET.get("q")
-        tasks = Task.objects.select_related("project").order_by("deadline")
+        tasks = Task.objects.filter(owner=request.user).select_related("project").order_by("deadline")
 
         if priority_filter:
             tasks = tasks.filter(priority=priority_filter)
@@ -78,8 +80,10 @@ def add_task(request):
         form = TaskForm(request.POST)
 
         if form.is_valid():
-            form.save()
-            return redirect("task_list")
+           task = form.save(commit=False)
+           task.owner = request.user
+           task.save()
+        return redirect("task_list")
 
     else:
 
@@ -113,6 +117,55 @@ def home(request):
     return redirect("task_list")
 
 
+def register(request):
 
-    
+    if request.method == "POST":
+
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("task_list")
+
+    else:
+
+        form = RegisterForm()
+
+    return render(
+        request,
+        "registration/register.html",
+        {"form": form},
+    )
+
+#login view
+def user_login(request):
+
+    if request.method == "POST":
+
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+
+            user = form.get_user()
+            login(request, user)
+
+            return redirect("task_list")
+
+    else:
+
+        form = AuthenticationForm()
+
+    return render(
+        request,
+        "registration/login.html",
+        {"form": form},
+    )
+
+#Logout view
+def user_logout(request):
+
+    logout(request)
+
+    return redirect("login")   
 
