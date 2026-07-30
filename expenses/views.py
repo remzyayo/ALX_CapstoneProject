@@ -69,7 +69,8 @@ def task_list(request):
         overdue_tasks = Task.objects.filter(deadline__lt=today).exclude(status="Done")
         context = {"tasks": tasks, "overdue_tasks": overdue_tasks, "today": today, "priority_filter": priority_filter, "status_filter": status_filter, "search_query": search_query,}
 
-        return render(request, "expenses/task_form.html", context)
+        return render(request, "expenses/task_list.html", context)
+
 def add_task(request):
 
     if request.method == "POST":
