@@ -9,7 +9,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.utils import timezone
-from .forms import TaskForm
+from .forms import TaskForm, ProjectForm
 
 
 
@@ -90,6 +90,23 @@ def add_task(request):
     }
 
     return render(request, "expenses/task_form.html", context)
+
+
+def add_project(request):
+    if request.method == "POST":
+        form = ProjectForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("task_list")
+    else:
+        form = ProjectForm()
+
+    return render(
+        request,
+        "expenses/project_form.html",
+        {"form": form},
+    )
 
 
 def home(request):

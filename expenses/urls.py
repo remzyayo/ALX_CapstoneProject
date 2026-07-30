@@ -10,5 +10,6 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("task/", views.task_list, name="task_list",),
     path("add/", views.add_task, name="add_task",),
+    path("project/add/", views.add_project, name="add_project"),
     path("", views.home, name="home"),
 ]
