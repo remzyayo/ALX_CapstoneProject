@@ -3,6 +3,6 @@ from .models import Task
 
 class TaskForm(forms.ModelForm):
     class Meta:
-        Model = Task
+        model = Task
         fields = ["title", "project", "deadline", "priority", "status",]
         widgets = {"deadline": forms.DateInput(attrs={"type": "date"}),} 
