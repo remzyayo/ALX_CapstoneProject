@@ -52,7 +52,7 @@ p {
 a {
     text-decoration: none;
     display: inline-block;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    background: linear-gradient(135deg, #000812, #000812);
     color: white;
     padding: 10px 18px;
     margin: 6px 5px;
@@ -261,7 +261,7 @@ footer {
 
 /* FORM CONTAINER */
 body.auth-page{
-    background:#033446;
+    background:#000812;
     display:flex;
     justify-content:center;
     align-items:center;
