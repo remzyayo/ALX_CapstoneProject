@@ -331,7 +331,7 @@ textarea:focus {
 .login-btn{
     width:100%;
     padding:14px;
-    background:#16a34a;
+    background:#bb040d;
     color:white;
     border:none;
     border-radius:10px;
@@ -396,7 +396,7 @@ textarea:focus {
     width:100%;
     text-align:center;
     padding:14px;
-    background:#2563eb;
+    background:#02752c;
     color:#fff;
     border-radius:10px;
     text-decoration:none;
@@ -453,7 +453,7 @@ textarea:focus {
 }
 
 .header-section h1{
-    color:#4f7cff;
+    color:#02752c;
     font-size:64px;
     margin-bottom:10px;
 }
