@@ -597,11 +597,6 @@ textarea:focus {
 
 /* Add Task & Add Project Pages */
 
-.form-container{
-    max-width:700px;
-    margin:50px auto;
-    padding:40px;
-}
 
 .form-container h1{
     color:#ffffff;
