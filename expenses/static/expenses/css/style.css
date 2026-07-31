@@ -9,10 +9,12 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
-    background-color: #f5f7fb;
+    background-color: #033446;
     color: #333;
     padding: 40px;
     line-height: 1.6;
+    display: flex;
+    align-items: center
 }
 
 /* HEADINGS */
