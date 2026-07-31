@@ -331,7 +331,7 @@ textarea:focus {
 .login-btn{
     width:100%;
     padding:14px;
-    background:#bb040d;
+    background:#02752c;
     color:white;
     border:none;
     border-radius:10px;
@@ -405,7 +405,7 @@ textarea:focus {
 }
 
 .register-btn:hover{
-    background:#1d4ed8;
+    background:#02752c;
 }
 
 /* ==========================
@@ -433,7 +433,7 @@ textarea:focus {
 }
 
 .logout-btn a{
-    background:#2563eb;
+    background:#bb040d;
     color:#fff;
     padding:12px 28px;
     border-radius:10px;
@@ -442,7 +442,7 @@ textarea:focus {
 }
 
 .logout-btn a:hover{
-    background:#1d4ed8;
+    background:#bb040d;
 }
 
 /* HEADER */
