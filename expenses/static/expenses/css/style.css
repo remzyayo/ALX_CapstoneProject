@@ -266,8 +266,8 @@ footer {
     max-width: 600px;
     margin: 40px auto;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
 }
 
 /* DJANGO FORM FIELDS = */
@@ -276,11 +276,19 @@ form p {
     margin-bottom: 18px;
 }
 
+.form-title {
+    text-align: center;
+    color: #051747;
+    margin-bottom: 25px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 form label {
     display: block;
     font-weight: bold;
     margin-bottom: 6px;
-    color: #1e3a8a;
+    color: #051747;
 }
 
 input,
