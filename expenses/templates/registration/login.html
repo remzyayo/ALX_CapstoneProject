@@ -1,50 +1,48 @@
-<div class="page-actions">
-
-    {% if user.is_authenticated %}
-
-        <span>Welcome, {{ user.username }}!</span>
-
-        <a href="{% url 'logout' %}">Logout</a>
-
-    {% else %}
-
-        <a href="{% url 'login' %}">Login</a>
-
-        <a href="{% url 'register' %}">Register</a>
-
-    {% endif %}
-
-</div>
-
-
-
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
     <link rel="stylesheet" href="{% static 'expenses/css/style.css' %}">
 </head>
-<body>
 
-<h2 class="form-title">Login</h2>
+<body class="auth-page">
 
-<div class="form-container">
+    <div class="form-container">
 
-<form method="POST">
+        <h1 class="form-title">Login</h1>
 
-{% csrf_token %}
+        <p class="form-subtitle">
+            Welcome back! Please login to your account.
+        </p>
 
-{{ form.as_p }}
+        <form method="POST">
+            {% csrf_token %}
 
-<button type="submit">
-Login
-</button>
+            {{ form.as_p }}
 
-</form>
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+        </form>
 
-</div>
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <div class="auth-links">
+            <p>Don't have an account?</p>
+
+            <a href="{% url 'register' %}" class="register-btn">
+                Create Account
+            </a>
+        </div>
+
+    </div>
 
 </body>
 </html>

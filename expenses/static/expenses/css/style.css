@@ -44,7 +44,7 @@ h3 {
 
 p {
     margin: 8px 0;
-    color: #444;
+    color: #f5f7fb;
 }
 
 /* FILTER LINKS */
@@ -260,14 +260,27 @@ footer {
 }
 
 /* FORM CONTAINER */
+body.auth-page{
+    background:#033446;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
 
-.form-container {
-    background: white;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.auth-wrapper{
+    width:100%;
+    max-width:450px;
+}
+
+body.auth-page .form-container{
+    width:430px;
+    background:#fff;
+    border-radius:18px;
+    padding:40px;
+    box-shadow:0 15px 45px rgba(0,0,0,.25);
 }
 
 /* DJANGO FORM FIELDS = */
@@ -276,12 +289,17 @@ form p {
     margin-bottom: 18px;
 }
 
-.form-title {
-    text-align: center;
-    color: #051747;
-    margin-bottom: 25px;
-    font-size: 30px;
-    font-weight: bold;
+.form-title{
+    text-align:center;
+    font-size:40px;
+    color:#0f172a;
+    margin-bottom:8px;
+}
+
+.form-subtitle{
+    text-align:center;
+    color:#6b7280;
+    margin-bottom:30px;
 }
 
 form label {
@@ -308,4 +326,84 @@ textarea:focus {
     border-color: #2563eb;
     outline: none;
     box-shadow: 0 0 8px rgba(37, 99, 235, 0.2);
+}
+
+.login-btn{
+    width:100%;
+    padding:14px;
+    background:#16a34a;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+.login-btn:hover{
+
+    background:#02752c;
+
+}
+
+.divider{
+    text-align:center;
+    margin:25px 0;
+    position:relative;
+
+}
+
+.divider::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    width:42%;
+    border-top:1px solid #ddd;
+
+}
+
+.divider::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    right:0;
+    width:42%;
+    border-top:1px solid #ddd;
+
+}
+
+.divider span{
+    background:#fff;
+    padding:0 10px;
+    color:#777;
+
+}
+
+.auth-links{
+    text-align:center;
+    margin-top:20px;
+}
+
+.auth-links p{
+    color:#666;
+    margin-bottom:12px;
+}
+
+.register-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:14px;
+    background:#2563eb;
+    color:#fff;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.register-btn:hover{
+    background:#1d4ed8;
 }
