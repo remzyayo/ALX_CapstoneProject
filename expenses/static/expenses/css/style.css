@@ -9,7 +9,7 @@
 
 body {
     font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
-    background-color: #033446;
+    background-color: #05d51a;
     color: #333;
     padding: 40px;
     line-height: 1.6;
@@ -20,7 +20,7 @@ body {
 h1 {
     font-family: Georgia, serif;
     text-align: center;
-    color: #1e3a8a;
+    color: #05d51a;
     font-size: 2.7rem;
     margin-bottom: 35px;
 }
