@@ -1,7 +1,6 @@
 {% load static %}
 
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -14,27 +13,31 @@
 
 <body>
 
-<h1>Add Task</h1>
+<div class="form-container">
 
-<form method="POST">
+    <h1>Add Task</h1>
 
-    {% csrf_token %}
+    <form method="POST">
 
-    {{ form.as_p }}
+        {% csrf_token %}
 
-    <button type="submit">
-        Save Task
-    </button>
+        {{ form.as_p }}
 
-</form>
+        <button type="submit" class="login-btn">
+            Save Task
+        </button>
 
-<p>
+    </form>
 
-<a href="{% url 'task_list' %}">
-Back to Tasks
-</a>
+    <p style="text-align:center; margin-top:20px;">
 
-</p>
+        <a href="{% url 'task_list' %}">
+            Back to Tasks
+        </a>
+
+    </p>
+
+</div>
 
 </body>
 
