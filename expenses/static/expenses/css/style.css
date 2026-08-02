@@ -51,14 +51,8 @@ p {
 
 a {
     text-decoration: none;
-    display: inline-block;
-    background: linear-gradient(135deg, #bb040d, #bb040d);
-    color: white;
-    padding: 10px 18px;
-    margin: 6px 5px;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all .3s ease;
+    color: inherit;
+    transition: .3s ease;
 }
 
 a:hover {
@@ -624,6 +618,5 @@ textarea:focus {
 }
 
 .forgot-password a:hover{
-    color:#02752C;
     background:#02752C ;
 }
