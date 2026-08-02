@@ -30,6 +30,11 @@
             </button>
         </form>
 
+        <p class="forgot-password">
+            <a href="{% url 'password_reset' %}">
+                Forgot Password?
+        </p>
+
         <div class="divider">
             <span>or</span>
         </div>
@@ -44,11 +49,7 @@
 
     </div>
 
-    <p class="forgot-password">
-    <a href="{% url 'password_reset' %}">
-        Forgot Password?
-    </a>
-</p>
+    
 
 </body>
 </html>
