@@ -347,10 +347,11 @@ textarea:focus {
 
 }
 
-.divider{
+.divider {
     text-align:center;
     margin:25px 0;
     position:relative;
+    background: transparent;
 
 }
 
@@ -377,7 +378,7 @@ textarea:focus {
 .divider span{
     background:#fff;
     padding:0 10px;
-    color:#777;
+    color:#555;
 
 }
 
@@ -386,9 +387,10 @@ textarea:focus {
     margin-top:20px;
 }
 
-.auth-links p{
-    color:#666;
+.auth-links p {
+    color:#555;
     margin-bottom:12px;
+    background: transparent;
 }
 
 .register-btn{
@@ -622,8 +624,6 @@ textarea:focus {
 }
 
 .forgot-password a:hover{
-    color:#02752c;
-    text-decoration:underline;
-    box-shadow:none;
-    transform:none;
+    color:#02752C;
+    background:#02752C ;
 }
