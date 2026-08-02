@@ -14,7 +14,7 @@ PyJWT==2.10.1
 python-decouple==3.8
 sqlparse==0.5.3
 tzdata==2025.2
-django-phonenumber-field==8.1.0
-phonenumbers==9.0.11
-django-countries==7.6.1
+django-phonenumber-field==8.5.0
+phonenumbers==9.0.36
+django-countries==9.0.0
 whitenoise==6.12.0
