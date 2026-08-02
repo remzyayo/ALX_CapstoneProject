@@ -27,11 +27,11 @@ router.register(r'expenses', ExpenseViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/users/', include('users.urls')),
     path('api/', include(router.urls)),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/users/', include('users.urls')),
-    path('', include('expenses.urls')),
+    path('', include('expenses.url')),
     path('api/', include('expenses.urls')),
     path('api/auth/', include('rest_framework.urls')),
     path('api/register/', RegisterView.as_view(), name ='register'),
