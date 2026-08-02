@@ -610,12 +610,15 @@ textarea:focus {
 }
 
 .forgot-password a{
-    background:none;
-    color:#02752c;
-    padding:0;
-    margin:0;
-    font-weight:600;
-    text-decoration:none;
+    background:#02752c;
+    color:white;
+    border-radius:10px;
+    border:none;
+    padding:14px;
+    font-size:17px;
+    font-weight:bold;
+    cursor: pointer;
+    width: 100%;
 }
 
 .forgot-password a:hover{
