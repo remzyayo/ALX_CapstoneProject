@@ -14,6 +14,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegisterForm
 from django.contrib.auth.decorators import login_required
 
+from .models import Profile
+
 
 User = get_user_model()
 
@@ -127,6 +129,10 @@ def register(request):
 
         if form.is_valid():
             user = form.save()
+            profile = user.profile
+            profile.country = form.cleaned_data["country"]
+            profile.phone_number = form.cleaned_data["phone_number"]
+            profile.save()
             login(request, user)
             return redirect("task_list")
 
