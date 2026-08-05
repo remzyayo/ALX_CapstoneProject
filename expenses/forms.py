@@ -21,7 +21,7 @@ class ProjectForm(forms.ModelForm):
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    help_text="Enter a valid email"
+    help_text="Enter a valid email address."
 
     country = CountryField().formfield(
         widget=CountrySelectWidget(attrs={"id": "country"})
@@ -33,6 +33,10 @@ class RegisterForm(UserCreationForm):
         help_text="Enter your phone number with country code."
     )
 
+    password1 = forms.CharField(
+        widget=forms.PasswordInput()/
+        help_text="Choose a strong password that is at least 8 characters long, is not similar to your personal information, is not a commonly used password, and is not made up entirely of numbers."
+    )
 
     class Meta:
         model = User
@@ -41,7 +45,7 @@ class RegisterForm(UserCreationForm):
             "country",
             "phone_number",
             "email",
-            "password",
-            "password",
+            "password1",
+            "password2",
            
         ]
