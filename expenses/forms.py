@@ -38,6 +38,12 @@ class RegisterForm(UserCreationForm):
         help_text="Choose a strong password that is at least 8 characters long, is not similar to your personal information, is not a commonly used password, and is not made up entirely of numbers."
     )
 
+    
+    password = forms.CharField(
+        widget=forms.PasswordInput(),
+        help_text="Enter the same password again."
+    )
+
     class Meta:
         model = User
         fields = [
@@ -45,7 +51,7 @@ class RegisterForm(UserCreationForm):
             "country",
             "phone_number",
             "email",
-            "password1",
-            "password2",
+            "password",
+            "password",
            
         ]
