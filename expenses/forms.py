@@ -21,17 +21,19 @@ class ProjectForm(forms.ModelForm):
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
+    help_text="Enter a valid email"
 
     country = CountryField().formfield(
-        widget=CountrySelectWidget()
+        widget=CountrySelectWidget(attrs={"id": "country"})
     )
 
     phone_number = PhoneNumberField(
         required=True,
+        widget=forms.TextInput(attrs={"id": "phone_number"}),
         help_text="Enter your phone number with country code."
     )
 
-    password1 = forms.CharField(
+    password = forms.CharField(
         widget=forms.PasswordInput(),
         help_text="""
 <ul>

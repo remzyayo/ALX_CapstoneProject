@@ -646,9 +646,19 @@ textarea:focus {
 
 .helptext ul {
     margin-left: 20px;
-    color: #02752C;
+    color: #555;
 }
 
 .helptext li {
-    color: #02752C;
+    color: #555;
+}
+
+/* Django password help text */
+.helptext,
+.helptext ul,
+.helptext li {
+    color: #555 !important;
+    background: transparent !important;
+    font-size: 14px;
+    line-height: 1.5;
 }
