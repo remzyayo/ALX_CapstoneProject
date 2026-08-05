@@ -635,3 +635,20 @@ textarea:focus {
 .forgot-password a:hover{
     background:#02752C ;
 }
+
+.helptext {
+    display: block;
+    color: #555;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.helptext ul {
+    margin-left: 20px;
+    color: #02752C;
+}
+
+.helptext li {
+    color: #02752C;
+}
