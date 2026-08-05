@@ -35,14 +35,7 @@ class RegisterForm(UserCreationForm):
 
     password = forms.CharField(
         widget=forms.PasswordInput(),
-        help_text="""
-<ul>
-<li>Your password can't be too similar to your personal information.</li>
-<li>Your password must contain at least 8 characters.</li>
-<li>Your password can't be a commonly used password.</li>
-<li>Your password can't be entirely numeric.</li>
-</ul>
-"""
+        help_text="Choose a strong password that is at least 8 characters long, is not similar to your personal information, is not a commonly used password, and is not made up entirely of numbers."
     )
 
     class Meta:
