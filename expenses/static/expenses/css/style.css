@@ -51,8 +51,14 @@ p {
 
 a {
     text-decoration: none;
-    color: inherit;
-    transition: .3s ease;
+    display: inline-block;
+    background: linear-gradient(135deg, #bb040d, #bb040d);
+    color: white;
+    padding: 10px 18px;
+    margin: 6px 5px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all .3s ease;
 }
 
 a:hover {
@@ -300,7 +306,7 @@ form label {
     display: block;
     font-weight: bold;
     margin-bottom: 6px;
-    color: #a80505;
+    color: #02752C;
 }
 
 input,
@@ -472,6 +478,15 @@ textarea:focus {
     padding:18px 40px;
     font-size:20px;
     border-radius:12px;
+    background:#bb040d;
+    display:inline-block;
+    color:#fff;
+    text-align: center;
+
+}
+
+.action-buttons a:hover{
+    background: #bb040d;
 }
 
 /* WHITE PANEL */
