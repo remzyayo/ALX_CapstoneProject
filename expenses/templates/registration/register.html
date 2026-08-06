@@ -30,25 +30,25 @@
     <p>
         {{ form.username.label_tag }}
         {{ form.username }}
-        {{ form.username.help_text }}
+        {{ form.username.help_text|safe }}
     </p>
 
     <p>
         {{ form.country.label_tag }}
         {{ form.country }}
-        {{ form.country.help_text }}
+        {{ form.country.help_text|safe }}
     </p>
 
     <p>
         {{ form.phone_number.label_tag }}
         {{ form.phone_number }}
-        {{ form.phone_number.help_text }}
+        {{ form.phone_number.help_text|safe }}
     </p>
 
     <p>
         {{ form.email.label_tag }}
         {{ form.email }}
-        {{ form.email.help_text }}
+        {{ form.email.help_text|safe }}
     </p>
 
     <p>
@@ -60,7 +60,7 @@
                   onclick="togglePassword('id_password1', this)">👁</span>
         </div>
 
-        {{ form.password1.help_text }}
+        {{ form.password1.help_text}}
     </p>
 
     <p>
@@ -78,13 +78,6 @@
     <button type="submit" class="login-btn">
         Register
     </button>
-</form>
-
-            <button type="submit" class="login-btn">
-                Register
-            </button>
-
-        </form>
 
         <div class="divider">
             <span>or</span>
