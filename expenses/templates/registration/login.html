@@ -23,7 +23,20 @@
         <form method="POST">
             {% csrf_token %}
 
-            {{ form.as_p }}
+       
+        {{ form.username.label_tag }}
+        {{ form.username }}
+
+    <div class="password-wrapper">
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        <span class="toggle-password" onclick="togglePassword()">👁</span>
+    </div>
+
+    <button type="submit" class="login-btn">
+        Login
+    </button>
+</form>
 
             <button type="submit" class="login-btn">
                 Login
@@ -50,7 +63,17 @@
 
     </div>
 
-    
+    <script>
+function togglePassword() {
+    const password = document.getElementById("id_password");
+
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
+    }
+}
+</script>
 
 </body>
 </html>

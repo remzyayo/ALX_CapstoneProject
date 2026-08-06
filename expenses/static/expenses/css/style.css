@@ -653,3 +653,27 @@ textarea:focus {
 .helptext li {
     color: #555;
 }
+
+.password-wrapper{
+    position:relative;
+}
+
+.password-wrapper input{
+    width:100%;
+    padding-right:45px;
+}
+
+.toggle-password{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#666;
+    font-size:18px;
+    user-select:none;
+}
+
+.toggle-password:hover{
+    color:#02752c;
+}
