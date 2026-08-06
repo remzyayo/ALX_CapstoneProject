@@ -24,7 +24,61 @@
 
             {% csrf_token %}
 
-            {{ form.as_p }}
+            <form method="POST">
+    {% csrf_token %}
+
+    <p>
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.username.help_text }}
+    </p>
+
+    <p>
+        {{ form.country.label_tag }}
+        {{ form.country }}
+        {{ form.country.help_text }}
+    </p>
+
+    <p>
+        {{ form.phone_number.label_tag }}
+        {{ form.phone_number }}
+        {{ form.phone_number.help_text }}
+    </p>
+
+    <p>
+        {{ form.email.label_tag }}
+        {{ form.email }}
+        {{ form.email.help_text }}
+    </p>
+
+    <p>
+        {{ form.password1.label_tag }}
+
+        <div class="password-wrapper">
+            {{ form.password1 }}
+            <span class="toggle-password"
+                  onclick="togglePassword('id_password1', this)">👁</span>
+        </div>
+
+        {{ form.password1.help_text }}
+    </p>
+
+    <p>
+        {{ form.password2.label_tag }}
+
+        <div class="password-wrapper">
+            {{ form.password2 }}
+            <span class="toggle-password"
+                  onclick="togglePassword('id_password2', this)">👁</span>
+        </div>
+
+        {{ form.password2.help_text }}
+    </p>
+
+    <button type="submit" class="login-btn">
+        Register
+    </button>
+</form>
 
             <button type="submit" class="login-btn">
                 Register
@@ -81,5 +135,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
     </script>
+    <script>
+function togglePassword(id, icon) {
+    const input = document.getElementById(id);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.textContent = "🙈";
+    } else {
+        input.type = "password";
+        icon.textContent = "👁";
+    }
+}
+</script>
 </body>
 </html>
