@@ -13,6 +13,7 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import RegisterForm
 from django.contrib.auth.decorators import login_required
+from .serializer import TaskSerializer
 
 from .models import Profile
 
@@ -176,3 +177,7 @@ def user_logout(request):
     logout(request)
 
     return redirect("login")   
+
+class TaskViewSet(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer

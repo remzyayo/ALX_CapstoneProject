@@ -1,10 +1,17 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import ExpenseViewSet, task_list
+from .views import ExpenseViewSet, task_list, TaskViewSet
 from . import views
 
 router = DefaultRouter()
 router.register(r'expenses', ExpenseViewSet, basename='expense')
+from rest_framework.routers import DefaultRouter
+from .views import TaskViewSet
+
+router = DefaultRouter()
+router.register(r"tasks-api", TaskViewSet, basename="tasks-api")
+
+urlpatterns += router.urls
 
 urlpatterns = [
     path("api/", include(router.urls)),

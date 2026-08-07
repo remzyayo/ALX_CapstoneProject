@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Expense
 from django.contrib.auth import get_user_model
+from .models import Task
 
 User = get_user_model()
 
@@ -29,3 +30,8 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user   
+
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = "__all__"
