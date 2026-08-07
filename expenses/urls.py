@@ -5,13 +5,8 @@ from . import views
 
 router = DefaultRouter()
 router.register(r'expenses', ExpenseViewSet, basename='expense')
-from rest_framework.routers import DefaultRouter
-from .views import TaskViewSet
-
 router = DefaultRouter()
 router.register(r"tasks-api", TaskViewSet, basename="tasks-api")
-
-urlpatterns += router.urls
 
 urlpatterns = [
     path("api/", include(router.urls)),
@@ -23,3 +18,5 @@ urlpatterns = [
     path("login/", views.user_login, name="login"),
     path("logout/", views.user_logout, name="logout"),
 ]
+
+urlpatterns += router.urls
